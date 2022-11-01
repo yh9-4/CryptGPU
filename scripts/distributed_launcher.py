@@ -133,13 +133,13 @@ if __name__ == '__main__':
     args = parse_args()
 
     username = "root"
-    password = "password"
+    password = "yuhuan1234.."
     hostnames = [
-        "example1.server.com",
-        "example2.server.com",
-        "example3.server.com",
+        "59.110.43.119",
+        "59.110.40.159",
+        "182.92.236.234",
     ]
-    master_ip_address = "1.1.1.1"
+    master_ip_address = "172.28.103.78"
 
     client_dict = {}
     for hostname in hostnames:
@@ -157,7 +157,7 @@ if __name__ == '__main__':
     for local_path in file_paths:
         assert os.path.exists(local_path), f"File `{local_path}` does not exist"
 
-    remote_dir = f"crypten-launcher-tmp-{uuid.uuid1()}"
+    remote_dir = f"CryptGPU/crypten-launcher-tmp-{uuid.uuid1()}"
     script_basename = os.path.basename(args.training_script)
     remote_script = os.path.join(remote_dir, script_basename)
 
@@ -186,6 +186,7 @@ if __name__ == '__main__':
         #"RENDEZVOUS": "file:///tmp/crypten-rendezvous-{}".format(uuid.uuid1()),
         "MASTER_ADDR" : master_ip_address,
         "MASTER_PORT": str(args.master_port),
+        "PATH":"/root/anaconda3/envs/crypt/bin:$PATH"
     }
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=world_size+1) as executor:
