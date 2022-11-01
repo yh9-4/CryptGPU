@@ -135,11 +135,11 @@ if __name__ == '__main__':
     username = "root"
     password = "yuhuan1234.."
     hostnames = [
-        "59.110.43.119",
         "59.110.40.159",
-        "182.92.236.234",
+        "101.200.184.203",
+        "47.93.133.111",
     ]
-    master_ip_address = "172.28.103.78"
+    master_ip_address = "172.23.209.172"
 
     client_dict = {}
     for hostname in hostnames:
